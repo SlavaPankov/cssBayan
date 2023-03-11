@@ -1,3 +1,7 @@
+body {
+	background-color: antiquewhite;
+}
+
 .container {
 	padding: 1rem;
 	max-width: 75%;
@@ -16,7 +20,7 @@
 }
 
 .bayan__label:not(:last-child) {
-	margin-bottom: 10px;
+	border-bottom: 1px solid black;
 }
 
 .bayan__button {
@@ -24,12 +28,11 @@
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	border-radius: 7px;
-	background-color: antiquewhite;
 	cursor: pointer;
 }
 
 .bayan__title {
+	font-size: 3rem;
 	font-weight: 700;
 	color: blue;
 	transition: color .3s ease-in-out, opacity .3s ease-in-out;
@@ -49,6 +52,7 @@
 }
 
 .bayan__content img {
+	max-width: 100%;
 	transform: scale(0);
 	transition: transform .3s ease-in-out, opacity .3s ease-in-out;
 }
@@ -72,34 +76,53 @@
 	transform: rotate(45deg);
 }
 
-.bayan__input:checked ~ span {
+.bayan__input:checked ~ .bayan__title {
 	color: black;
 }
 
-.bayan__input:hover ~ .bayan__content {
-	padding: 1rem 0;
-	max-height: 100vh;
+.bayan__cross path {
+	transition: stroke .3s ease-in-out;
 }
 
-.bayan__input:hover ~ .bayan__content img {
-	transform: scale(1);
+.bayan__button:active .bayan__cross path{
+	stroke: blue;
 }
 
-.bayan__input:hover ~ .bayan__cross {
-	transform: translate(0) rotate(45deg);
+@media (hover: hover) {
+	.bayan__input:hover ~ .bayan__content {
+		padding: 1rem 0;
+		max-height: 100vh;
+	}
+	
+	.bayan__input:hover ~ .bayan__content img {
+		transform: scale(1);
+	}
+	
+	.bayan__input:hover ~ .bayan__cross {
+		transform: translate(0) rotate(45deg);
+	}
+	
+	.bayan:hover .bayan__title {
+		color: black;
+	}
+
+	.bayan:hover .bayan__cross {
+		opacity: 1;
+	}
 }
 
-.bayan:hover .bayan__cross {
-	opacity: 1;
-}
+@media (hover: none) {
+	.bayan__cross {
+		opacity: 1;
+	}
 
-.bayan:hover .bayan__title {
-	color: black;
-}
+	.bayan__cross path {
+		stroke: blue;
+	}
 
-.bayan__button:active .bayan__title {
-	color: blue;
-	opacity: .6;
+	.bayan__input:checked ~ .bayan__cross path {
+		stroke: black;
+	}
 }
 
 .bayan__button:active .bayan__content img {
@@ -110,10 +133,21 @@
 	opacity: .6;
 }
 
-.bayan__cross path {
-	transition: stroke .3s ease-in-out;
+.bayan__button:active .bayan__title {
+	color: blue;
+	opacity: .6;
 }
 
-.bayan__button:active .bayan__cross path{
-	stroke: blue;
+
+@media (max-width: 820px) {
+	.bayan__title {
+		font-size: 2rem;
+	}
+}
+
+
+@media (max-width: 320px) {
+	.bayan__title {
+		font-size: 1rem;
+	}
 }
