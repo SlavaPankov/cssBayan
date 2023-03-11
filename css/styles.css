@@ -1,0 +1,49 @@
+.container {
+	padding: 1rem;
+	max-width: 75%;
+	margin: 0 auto;
+}
+
+.bayan {
+	display: flex;
+	flex-direction: column;
+}
+
+.bayan__label {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bayan__label:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.bayan__button {
+	padding: 1rem .5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	border-radius: 7px;
+	background-color: antiquewhite;
+}
+
+.bayan__content {
+	height: auto;
+	flex-basis: 100%;
+	display: flex;
+	justify-content: center;
+	transition: all .3s ease-in-out;
+}
+
+.bayan__input {
+	width: 0.01em;
+	height: 0.01em;
+}
+
+.bayan__input:checked ~ .bayan__content {
+	height: 100%;	
+	max-height: fit-content;
+	padding: 1rem 0;
+	transition: all .3s ease-in-out;
+}
