@@ -22,10 +22,17 @@
 .bayan__button {
 	padding: 1rem .5rem;
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	border-radius: 7px;
 	background-color: antiquewhite;
+	cursor: pointer;
+}
+
+.bayan__title {
+	font-weight: 700;
+	color: blue;
+	transition: color .3s ease-in-out, opacity .3s ease-in-out;
 }
 
 .bayan__content {
@@ -41,12 +48,72 @@
 	height: 0.01em;
 }
 
+.bayan__content img {
+	transform: scale(0);
+	transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.bayan__cross {
+	margin-left: auto;
+	opacity: 0;
+	transition: transform .3s ease-in-out, opacity .3s ease-in-out, opacity .3s ease-in-out;
+}
+
 .bayan__input:checked ~ .bayan__content {
 	padding: 1rem 0;
 	max-height: 100vh;
 }
 
+.bayan__input:checked ~ .bayan__content img {
+	transform: scale(1);
+}
+
+.bayan__input:checked ~ .bayan__cross {
+	transform: rotate(45deg);
+}
+
+.bayan__input:checked ~ span {
+	color: black;
+}
+
 .bayan__input:hover ~ .bayan__content {
 	padding: 1rem 0;
 	max-height: 100vh;
+}
+
+.bayan__input:hover ~ .bayan__content img {
+	transform: scale(1);
+}
+
+.bayan__input:hover ~ .bayan__cross {
+	transform: translate(0) rotate(45deg);
+}
+
+.bayan:hover .bayan__cross {
+	opacity: 1;
+}
+
+.bayan:hover .bayan__title {
+	color: black;
+}
+
+.bayan__button:active .bayan__title {
+	color: blue;
+	opacity: .6;
+}
+
+.bayan__button:active .bayan__content img {
+	opacity: .6;
+}
+
+.bayan__button:active .bayan__cross {
+	opacity: .6;
+}
+
+.bayan__cross path {
+	transition: stroke .3s ease-in-out;
+}
+
+.bayan__button:active .bayan__cross path{
+	stroke: blue;
 }
